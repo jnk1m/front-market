@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <fmt:setLocale value="ko"/>
+    <fmt:setLocale value="${sessionScope.language}"/>
     <fmt:bundle basename="language">
     <title><fmt:message key="LoginPage"/></title>
 </head>

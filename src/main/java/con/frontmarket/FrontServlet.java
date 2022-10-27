@@ -49,8 +49,8 @@ public class FrontServlet extends HttpServlet {
       command = new CartListController();
     } else if ("/pay.do".equals(servletPath)) {
       command = new Pay();
-    } else if ("/locale.do".equals(servletPath)) {
-      command = new LocaleController();
+    } else if ("/language.do".equals(servletPath)) {
+      command = new LanguageController();
     }
     return command;
   }

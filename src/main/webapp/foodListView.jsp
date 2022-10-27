@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
-    <fmt:setLocale value="ko"/>
+    <fmt:setLocale value="${sessionScope.language}"/>
     <fmt:bundle basename="language">
     <title><fmt:message key="FoodList"/></title>
 </head>

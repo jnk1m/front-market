@@ -21,34 +21,36 @@ public class FrontServlet extends HttpServlet {
 
   @Override
   protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    try{
+    try {
       Command command = resolveServlet(req.getServletPath());
       String view = command.execute(req, resp);
 
-      if(view.startsWith(REDIRECT_PREFIX)){
+      if (view.startsWith(REDIRECT_PREFIX)) {
         resp.sendRedirect(view.substring(REDIRECT_PREFIX.length()));
-      }else {
+      } else {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(view);
-        requestDispatcher.forward(req,resp);
+        requestDispatcher.forward(req, resp);
       }
 
-    }catch (Exception e){
-      log.error("",e);
+    } catch (Exception e) {
+      log.error("", e);
 
     }
   }
 
-  private Command resolveServlet(String servletPath){
+  private Command resolveServlet(String servletPath) {
     Command command = null;
 
-    if("/foodStand.do".equals(servletPath)){
+    if ("/foodStand.do".equals(servletPath)) {
       command = new FoodListController();
     } else if ("/login.do".equals(servletPath)) {
       command = new Login();
-    }else if ("/cart.do".equals(servletPath)) {
+    } else if ("/cart.do".equals(servletPath)) {
       command = new CartListController();
-    }else if("/pay.do".equals(servletPath)){
+    } else if ("/pay.do".equals(servletPath)) {
       command = new Pay();
+    } else if ("/locale.do".equals(servletPath)) {
+      command = new LocaleController();
     }
     return command;
   }

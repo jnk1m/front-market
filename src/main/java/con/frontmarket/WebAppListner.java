@@ -18,18 +18,16 @@ public class WebAppListner implements ServletContextListener {
   @Override
   public void contextInitialized(ServletContextEvent sce) {
 
-    log.info(sce.toString()+"init!!!");
-
     ServletContext servletContext = sce.getServletContext();
     servletContext.setAttribute("user", new User("user1", "123"));
 
     List<Food> foodList = new ArrayList<>();
-    foodList.add(new Food("onion",1_000,2));
-    foodList.add(new Food("egg",2_000,5));
-    foodList.add(new Food("spring onion",500,10));
-    foodList.add(new Food("apple",2_000,20));
+    foodList.add(new Food("onion", 1_000, 2));
+    foodList.add(new Food("egg", 2_000, 5));
+    foodList.add(new Food("spring onion", 500, 10));
+    foodList.add(new Food("apple", 2_000, 20));
 
-    servletContext.setAttribute("foodList",foodList);
+    servletContext.setAttribute("foodList", foodList);
 
   }
 }

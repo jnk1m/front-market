@@ -14,13 +14,11 @@ import java.util.Objects;
 public class Login implements Command {
   @Override
   public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    log.info("login execute");
     String method = req.getMethod();
 
     if (method.equals("GET")) {
       return doGet(req, resp);
-    }
-    else if (method.equals("POST")) {
+    } else if (method.equals("POST")) {
       return doPost(req, resp);
     }
 
@@ -57,9 +55,9 @@ public class Login implements Command {
     if (requestId.equals(id) && requestPassword.equals(password)) {
       HttpSession session = req.getSession();
       session.setAttribute("id", id);
-      session.setAttribute("cart",new Cart());
+      session.setAttribute("cart", new Cart());
       user.setBalance(20_000);
-      return"redirect:/foodListView.jsp";
+      return "redirect:/foodListView.jsp";
     } else {
       return "redirect:/loginForm.jsp";
     }

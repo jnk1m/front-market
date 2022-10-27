@@ -1,17 +1,27 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>Main Page</title>
-  </head>
-  <body>
-  <a href="cartView.jsp">To Cart</a><br/>
-  <a href="foodStand.do">To Food List</a><br/>
-  <c:set var="remainingBalance" value="${sessionScope.remainingBalance}"/>
-  <%--<c:if 세션에 아이디가 있으면 .. 밸런스 보여주고 없으면 0..--%>
-  <c:out value="${remainingBalance}" /><br/>
-  Remaining Balance<br/>
+<head>
+    <fmt:setLocale value="ko"/>
+    <fmt:bundle basename="language">
+    <title><fmt:message key="MainPage"/></title>
+</head>
+<body>
+<a href="cartView.jsp"><fmt:message key="ToCart"/></a><br/>
+<a href="foodStand.do"><fmt:message key="ToFoodList"/></a><br/>
+<fmt:message key="RemainingBalance"/>
+<c:if test="${sessionScope.id != null}">
+    ${sessionScope.remainingBalance}
+</c:if>
+<c:if test="${sessionScope.id == null}">
+    0
+</c:if>
+<c:out value="${remainingBalance}"/><br/>
 
-  </body>
+<fmt:message key="ko"/> / <fmt:message key="en"/>
+</fmt:bundle>
+
+</form>
+</body>
 </html>

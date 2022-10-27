@@ -1,19 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jieunkim
-  Date: 2022/10/27
-  Time: 12:57 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>NotEnoughMoneyException</title>
+    <fmt:setLocale value="ko"/>
+    <fmt:bundle basename="language">
+    <title><fmt:message key="InsufficientBalance"/></title>
 </head>
 <body>
-Transaction is declined.<br/>
-Insufficient Balance.<br/>
-<a href='foodListView.jsp'>To Food List</a>
-
+<fmt:message key="Transactionisdeclined"/><br/>
+<fmt:message key="InsufficientBalance"/><br/>
+<a href='foodListView.jsp'><fmt:message key="ToFoodList"/></a>
+</fmt:bundle>
 </body>
 </html>

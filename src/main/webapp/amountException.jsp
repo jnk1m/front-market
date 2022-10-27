@@ -1,19 +1,15 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: jieunkim
-  Date: 2022/10/27
-  Time: 12:40 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Amount Exception</title>
+    <fmt:setLocale value="ko"/>
+    <fmt:bundle basename="language">
+    <title><fmt:message key="AmountException"/></title>
 </head>
 <body>
-Out of Stock
+<fmt:message key="OutofStock"/>
 <br/>
-<a href='foodListView.jsp'>To Food List</a> <br/><br/>
-
+<a href='foodListView.jsp'><fmt:message key="ToFoodList"/></a> <br/><br/>
+</fmt:bundle>
 </body>
 </html>

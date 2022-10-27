@@ -1,13 +1,16 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Payment</title>
+    <fmt:setLocale value="ko"/>
+    <fmt:bundle basename="language">
+    <title><fmt:message key="Payment"/></title>
 </head>
 <body>
-결제 금액: <c:out value="${sessionScope.cartBalance}" /><br/>
-남은 금액: <c:out value="${sessionScope.remainingBalance}" /><br/>
+<fmt:message key="PaymentBalance"/>: <c:out value="${sessionScope.cartBalance}"/><br/>
+<fmt:message key="RemainingBalance"/>: <c:out value="${sessionScope.remainingBalance}"/><br/>
+</fmt:bundle>
 
 </body>
 </html>
